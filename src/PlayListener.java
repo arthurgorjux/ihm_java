@@ -28,7 +28,6 @@ class PlayListener implements ActionListener {
             this.p.createImageDisplay();
             stop = true;
         }else{
-            continue;
         }
     }
     
