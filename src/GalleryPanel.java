@@ -135,4 +135,15 @@ public class GalleryPanel extends JPanel{
         repaint();
     }
     
+    public void stopImageDisplay(){
+        this.vignetteActive = null;
+        this.currentImage = null;
+        this.remove(displayImage);
+        this.remove(buttons);
+        this.add(gridImages, BorderLayout.NORTH);
+        this.add(buttons, BorderLayout.SOUTH);
+        revalidate();
+        repaint();
+    }
+    
 }

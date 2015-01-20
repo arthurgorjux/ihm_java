@@ -1,6 +1,11 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /*
@@ -17,17 +22,36 @@ class PlayListener implements ActionListener {
     private JButton play;
     private GalleryPanel p;
     private static boolean stop = false;
-    public PlayListener(JButton play, GalleryPanel aThis) {
+    public PlayListener(JButton play, GalleryPanel aThis){
         this.play = play;
         this.p = aThis;
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(!stop){
             this.p.createImageDisplay();
-            stop = true;
+            stop = true;            
+            try {
+                ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/stop.png")));
+                this.play.setIcon(stopImg);
+                this.p.repaint();
+            } catch (IOException ex) {
+                Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }else{
+            this.p.stopImageDisplay();
+            stop = false;
+            try {
+                ImageIcon playImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
+                this.play.setIcon(playImg);
+                this.p.repaint();
+            } catch (IOException ex) {
+                Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }
     
