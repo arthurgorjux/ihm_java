@@ -126,6 +126,12 @@ public class GalleryPanel extends JPanel{
         this.pause.setEnabled(true);
     }
     
+    public void disableButtons(){
+        this.next.setEnabled(false);
+        this.previous.setEnabled(false);
+        this.pause.setEnabled(false);
+    }
+    
     public void createImageDisplay(){
         this.displayImage = new JPanel();
         if(!this.hasVignetteActive()){ 

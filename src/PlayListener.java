@@ -48,6 +48,7 @@ class PlayListener implements ActionListener {
             try {
                 ImageIcon playImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
                 this.play.setIcon(playImg);
+                this.p.disableButtons();
                 this.p.repaint();
             } catch (IOException ex) {
                 Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
