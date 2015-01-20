@@ -16,6 +16,7 @@ class PlayListener implements ActionListener {
 
     private JButton play;
     private GalleryPanel p;
+    private static boolean stop = false;
     public PlayListener(JButton play, GalleryPanel aThis) {
         this.play = play;
         this.p = aThis;
@@ -23,7 +24,12 @@ class PlayListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.p.createImageDisplay();
+        if(!stop){
+            this.p.createImageDisplay();
+            stop = true;
+        }else{
+            continue;
+        }
     }
     
 }
