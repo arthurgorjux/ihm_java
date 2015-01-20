@@ -53,9 +53,11 @@ public class GalleryPanel extends JPanel{
         play.addActionListener(new PlayListener(play, this));
         pause = new JButton(new ImageIcon(imgPause));
         pause.setEnabled(false);
-        previous = new JButton("<<");
+        ImageIcon previousImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/previous.png")));
+        previous = new JButton(previousImg);
         previous.setEnabled(false);
-        next = new JButton(">>");
+        ImageIcon nextImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/next.png")));
+        next = new JButton(nextImg);
         next.setEnabled(false);
         gridImages.setLayout(new GridLayout(3, 4, 5, 5));        
         //gridImages.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
@@ -116,6 +118,12 @@ public class GalleryPanel extends JPanel{
     
     public boolean hasVignetteActive(){
         return this.vignetteActive != null;
+    }
+    
+    public void enableButtons(){
+        this.next.setEnabled(true);
+        this.previous.setEnabled(true);
+        this.pause.setEnabled(true);
     }
     
     public void createImageDisplay(){
