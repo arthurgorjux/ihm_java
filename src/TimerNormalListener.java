@@ -24,7 +24,35 @@ class TimerNormalListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        switch (panel.etat){
+            case 0:
+            case 1:
+                break;
+            case 2:
+                panel.etat = 2;
+                // continuer à faire défiler les images
+                break;
+            case 3:
+            case 4 :
+            case 5 :
+                break;
+            case 6 :
+                panel.etat = 6;
+                // continuer à faire défiler les images
+                break;
+            case 7 :
+                panel.etat = 7;
+                // continuer à faire défiler les images
+                break;
+            case 8 :
+            case 9 :
+            case 10 :
+            case 11 :
+            case 12 :
+            case 13 :
+            case 14 :
+                break;               
+        }
     }
     
 }

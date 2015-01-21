@@ -50,6 +50,8 @@ public class GalleryPanel extends JPanel{
         super(); 
         timerNormal = new Timer(3, new TimerNormalListener(this, this.timerNormal));
         timerActif = timerNormal;
+        timerInverse = new Timer(3, new TimerInverseListener(this,this.timerInverse));
+        
         this.images = images;
         this.mapImages = new HashMap<JLabel, JLabel>();
         gridImages = new JPanel();
@@ -64,9 +66,11 @@ public class GalleryPanel extends JPanel{
         ImageIcon previousImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/previous.png")));
         previous = new JButton(previousImg);
         previous.setEnabled(false);
+        previous.addActionListener(new AvancerInverseListener(previous,this));
         ImageIcon nextImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/next.png")));
         next = new JButton(nextImg);
         next.setEnabled(false);
+        next.addActionListener(new AvancerNormalListener(next,this));
         gridImages.setLayout(new GridLayout(3, 4, 5, 5));        
         //gridImages.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
        
