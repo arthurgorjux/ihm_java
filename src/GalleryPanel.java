@@ -61,22 +61,67 @@ public class GalleryPanel extends JPanel{
         next.setEnabled(false);
         gridImages.setLayout(new GridLayout(3, 4, 5, 5));        
         //gridImages.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
+       
         JLabel image1 = new JLabel(images[0]);
-        ImageIcon img1Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_big.jpg")));
+        ImageIcon img1Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_big.jpg")));        
         JLabel image1Big = new JLabel(img1Big);
         this.mapImages.put(image1, image1Big);
-        //add(image1Big);
+        
         JLabel image2 = new JLabel(images[1]);
+        ImageIcon img2Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image2_big.jpg")));        
+        JLabel image2Big = new JLabel(img2Big);
+        this.mapImages.put(image2, image2Big);
+        
         JLabel image3 = new JLabel(images[2]);
+        ImageIcon img3Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image3_big.jpg")));        
+        JLabel image3Big = new JLabel(img3Big);
+        this.mapImages.put(image3, image3Big);
+        
         JLabel image4 = new JLabel(images[3]);
+        ImageIcon img4Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image4_big.jpg")));        
+        JLabel image4Big = new JLabel(img4Big);
+        this.mapImages.put(image4, image4Big);
+        
         JLabel image5 = new JLabel(images[4]);
+        ImageIcon img5Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image5_big.jpg")));        
+        JLabel image5Big = new JLabel(img5Big);
+        this.mapImages.put(image5, image5Big);
+        
         JLabel image6 = new JLabel(images[5]);
+        ImageIcon img6Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image6_big.jpg")));        
+        JLabel image6Big = new JLabel(img6Big);
+        this.mapImages.put(image6, image6Big);
+        
         JLabel image7 = new JLabel(images[6]);
+        ImageIcon img7Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image7_big.jpg")));        
+        JLabel image7Big = new JLabel(img7Big);
+        this.mapImages.put(image7, image7Big);
+        
         JLabel image8 = new JLabel(images[7]);
+        ImageIcon img8Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image8_big.jpg")));        
+        JLabel image8Big = new JLabel(img8Big);
+        this.mapImages.put(image8, image8Big);
+        
         JLabel image9 = new JLabel(images[8]);
+        ImageIcon img9Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image9_big.jpg")));        
+        JLabel image9Big = new JLabel(img9Big);
+        this.mapImages.put(image9, image9Big);
+        
         JLabel image10 = new JLabel(images[9]);
+        ImageIcon img10Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image10_big.jpg")));        
+        JLabel image10Big = new JLabel(img10Big);
+        this.mapImages.put(image10, image10Big);
+        
         JLabel image11 = new JLabel(images[10]);
+        ImageIcon img11Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image11_big.jpg")));        
+        JLabel image11Big = new JLabel(img11Big);
+        this.mapImages.put(image11, image11Big);
+        
         JLabel image12 = new JLabel(images[11]);
+        ImageIcon img12Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image12_big.jpg")));        
+        JLabel image12Big = new JLabel(img12Big);
+        this.mapImages.put(image12, image12Big);
+       
         image1.addMouseListener(new ImageListener(image1, this));
         image2.addMouseListener(new ImageListener(image2, this));
         image3.addMouseListener(new ImageListener(image3, this));

@@ -40,17 +40,17 @@ public class Gallery extends JFrame{
     
     public Gallery() throws IOException{
         image1 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image2 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image3 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image4 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image5 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image6 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image7 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image8 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image9 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image10 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image11 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
-        image12 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_min.jpg")));
+        image2 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image2_min.jpg")));
+        image3 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image3_min.jpg")));
+        image4 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image4_min.jpg")));
+        image5 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image5_min.jpg")));
+        image6 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image6_min.jpg")));
+        image7 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image7_min.jpg")));
+        image8 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image8_min.jpg")));
+        image9 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image9_min.jpg")));
+        image10 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image10_min.jpg")));
+        image11 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image11_min.jpg")));
+        image12 = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image12_min.jpg")));
         
         images[0] = image1;
         images[1] = image2;
