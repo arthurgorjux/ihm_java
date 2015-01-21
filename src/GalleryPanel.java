@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,9 +40,15 @@ public class GalleryPanel extends JPanel{
     private JLabel vignetteActive;
     private JLabel currentImage;
     private Map<JLabel, JLabel> mapImages;
+    public int etat = 0;
+    public Timer timerNormal;
+    public Timer timerInverse;
+    public Timer timerActif;
     
     public GalleryPanel(ImageIcon[] images) throws IOException{
         super(); 
+        timerNormal = new Timer(3, new TimerNormalListener(this, this.timerNormal));
+        timerActif = timerNormal;
         this.images = images;
         this.mapImages = new HashMap<JLabel, JLabel>();
         gridImages = new JPanel();
@@ -203,6 +210,10 @@ public class GalleryPanel extends JPanel{
         this.add(buttons, BorderLayout.SOUTH);
         revalidate();
         repaint();
+    }
+    
+    public JButton getPlay(){
+        return this.play;
     }
     
 }

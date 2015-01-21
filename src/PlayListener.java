@@ -30,7 +30,33 @@ class PlayListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(!stop){
+        switch(this.p.etat){
+            case 0:
+            case 1:
+                this.p.createImageDisplay();
+                try {
+                    ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/stop.png")));
+                    this.play.setIcon(stopImg);
+                    this.p.enableButtons();
+                    this.p.repaint();
+                } catch (IOException ex) {
+                    Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.p.etat = 2;
+                break;
+            case 2:
+                this.p.stopImageDisplay();
+                try {
+                    ImageIcon playImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
+                    this.play.setIcon(playImg);
+                    this.p.disableButtons();
+                    this.p.repaint();
+                } catch (IOException ex) {
+                    Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.p.etat = 0;
+        }
+        /*if(!stop){
             this.p.createImageDisplay();
             stop = true;            
             try {
@@ -54,7 +80,6 @@ class PlayListener implements ActionListener {
                 Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-        }
-    }
-    
+        }*/
+    }    
 }
