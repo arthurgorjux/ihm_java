@@ -232,9 +232,6 @@ public class GalleryPanel extends JPanel{
     }
     
     public void createImageDisplay(){ 
-        
-        System.out.println("Dans Create");
-        System.out.println(this.vignetteActive == null);
         if(this.vignetteActive == null){             
             this.vignetteActive = this.firstImage;
         }        
@@ -251,8 +248,6 @@ public class GalleryPanel extends JPanel{
     }
     
     public void defilementNormal(){
-        System.out.println("ALLEEEEZ");
-        System.out.println(this.currentImage);
         this.displayImage.remove(this.currentImage);
         this.currentImage = this.mapImagesBig.get(this.currentImage);
         this.displayImage.add(this.currentImage);
@@ -262,8 +257,7 @@ public class GalleryPanel extends JPanel{
     }
     
     public void stopImageDisplay(){
-        System.out.println("Dans stop avant");
-        System.out.println(this.currentImage == null);
+        this.displayImage.remove(this.currentImage);
         this.vignetteActive.setBorder(new EmptyBorder(0, 0, 0, 0));
         this.vignetteActive = null;
         this.currentImage = null;
