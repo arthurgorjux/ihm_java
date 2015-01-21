@@ -33,7 +33,7 @@ public class TimerInverseListener implements ActionListener{
                 break;
             case 4 :
                 panel.etat = 4;
-                // continuer à faire défiler les images
+                this.panel.defilementNormal();
                 break;
             case 5 :
             case 6 :
@@ -41,11 +41,11 @@ public class TimerInverseListener implements ActionListener{
                 break;
             case 8 :
                 panel.etat = 8;
-                // continuer à faire défiler les images
+                this.panel.defilementNormal();
                 break;
             case 9 :
                 panel.etat = 9;
-                // continuer à faire défiler les images
+                this.panel.defilementNormal();
                 break;
             case 10 :
             case 11 :
