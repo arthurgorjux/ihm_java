@@ -9,9 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -38,7 +36,7 @@ class ImageListener implements MouseListener {
         switch(this.p.etat){
             case 0:
                 if(e.getClickCount() == 2){
-                    this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    this.image.setBorder(BorderFactory.createLineBorder(Color.GREEN, 1));
                     p.setVignetteActive(this.image);
                     p.createImageDisplay();
                     try {
@@ -51,7 +49,7 @@ class ImageListener implements MouseListener {
                     }
                     this.p.etat = 2;
                 }else{
-                    this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    this.image.setBorder(BorderFactory.createLineBorder(Color.GREEN, 1));
                     this.imageTemp = this.image;
                     p.setVignetteActive(this.image);
                     this.p.etat = 1;
@@ -60,14 +58,10 @@ class ImageListener implements MouseListener {
             case 1:
                 if(this.imageTemp != this.image){
                     this.imageTemp.setBorder(new EmptyBorder(0, 0, 0, 0));
-                    this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    this.image.setBorder(BorderFactory.createLineBorder(Color.GREEN, 1));
                     this.imageTemp = this.image;
                     p.setVignetteActive(this.image);
                     this.p.etat = 1;
-                }else{
-                    this.image.setBorder(new EmptyBorder(0, 0, 0, 0));
-                    p.setVignetteActive(null);
-                    this.p.etat = 0;
                 }
                 break;
         }

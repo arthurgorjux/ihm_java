@@ -24,7 +24,7 @@ class TimerNormalListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        this.panel.defilementNormal();
     }
     
 }
