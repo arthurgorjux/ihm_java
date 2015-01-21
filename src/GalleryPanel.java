@@ -74,6 +74,7 @@ public class GalleryPanel extends JPanel{
         Image imgPause = ImageIO.read(getClass().getResource("/IMG/pause.png"));
         play.addActionListener(new PlayListener(play, this));
         pause = new JButton(new ImageIcon(imgPause));
+        pause.addActionListener(new PauseListener(pause, this));
         pause.setEnabled(false);
         ImageIcon previousImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/previous.png")));
         previous = new JButton(previousImg);
@@ -287,6 +288,10 @@ public class GalleryPanel extends JPanel{
     
     public JButton getPrevious(){
         return this.previous;
+    }
+    
+    public JButton getPause(){
+        return this.pause;
     }
     
 }
