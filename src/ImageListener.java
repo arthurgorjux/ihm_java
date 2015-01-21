@@ -2,7 +2,12 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
@@ -30,12 +35,36 @@ class ImageListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getClickCount() == 2){
-            this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-            p.setVignetteActive(this.image);
-            p.createImageDisplay();
+        switch(this.p.etat){
+            case 0:
+                if(e.getClickCount() == 2){
+                    this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    p.setVignetteActive(this.image);
+                    p.createImageDisplay();
+                    try {
+                        ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/stop.png")));
+                        this.p.getPlay().setIcon(stopImg);
+                        this.p.enableButtons();
+                        this.p.repaint();
+                    } catch (IOException ex) {
+                        Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    this.p.etat = 2;
+                }else{
+                    this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    this.imageTemp = this.image;
+                    p.setVignetteActive(this.image);
+                    this.p.etat = 1;
+                }                
+                break;
+            case 1:
+                this.image.setBorder(new EmptyBorder(0, 0, 0, 0));
+                p.setVignetteActive(null);
+                this.p.etat = 0;
+                break;
         }
-        if(!use){
+        
+        /*if(!use){
             this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             this.imageTemp = this.image;
             use = true;
@@ -52,7 +81,7 @@ class ImageListener implements MouseListener {
                 this.use = false;
                 p.setVignetteActive(null);
             }
-        }
+        }*/
     }
 
     @Override
