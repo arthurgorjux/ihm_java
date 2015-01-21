@@ -44,6 +44,7 @@ public class GalleryPanel extends JPanel{
     public Timer timerNormal;
     public Timer timerInverse;
     public Timer timerActif;
+    private JLabel firstImage;
     
     public GalleryPanel(ImageIcon[] images) throws IOException{
         super(); 
@@ -70,6 +71,7 @@ public class GalleryPanel extends JPanel{
         //gridImages.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
        
         JLabel image1 = new JLabel(images[0]);
+        this.firstImage = image1;
         ImageIcon img1Big = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/image1_big.jpg")));        
         JLabel image1Big = new JLabel(img1Big);
         this.mapImages.put(image1, image1Big);
@@ -187,10 +189,9 @@ public class GalleryPanel extends JPanel{
     public void createImageDisplay(){
         this.displayImage = new JPanel();
         if(!this.hasVignetteActive()){ 
-            this.vignetteActive = new JLabel(images[0]);
-        }
-        this.currentImage = (JLabel) this.mapImages.entrySet().iterator().next().getValue();
-        
+            this.vignetteActive = this.firstImage;
+        }        
+        this.currentImage = this.mapImages.get(this.vignetteActive);
         this.displayImage.add(this.currentImage);
         this.remove(gridImages);
         this.remove(buttons);

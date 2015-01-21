@@ -58,9 +58,17 @@ class ImageListener implements MouseListener {
                 }                
                 break;
             case 1:
-                this.image.setBorder(new EmptyBorder(0, 0, 0, 0));
-                p.setVignetteActive(null);
-                this.p.etat = 0;
+                if(this.imageTemp != this.image){
+                    this.imageTemp.setBorder(new EmptyBorder(0, 0, 0, 0));
+                    this.image.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    this.imageTemp = this.image;
+                    p.setVignetteActive(this.image);
+                    this.p.etat = 1;
+                }else{
+                    this.image.setBorder(new EmptyBorder(0, 0, 0, 0));
+                    p.setVignetteActive(null);
+                    this.p.etat = 0;
+                }
                 break;
         }
         
