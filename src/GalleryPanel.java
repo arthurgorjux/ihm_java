@@ -271,6 +271,7 @@ public class GalleryPanel extends JPanel{
         this.remove(buttons);
         this.add(gridImages, BorderLayout.NORTH);
         this.add(buttons, BorderLayout.SOUTH);
+        timerNormal.setDelay(3000);
         timerNormal.stop();
         validate();
         repaint();
@@ -278,6 +279,14 @@ public class GalleryPanel extends JPanel{
     
     public JButton getPlay(){
         return this.play;
+    }
+    
+    public JButton getNext(){
+        return this.next;
+    }
+    
+    public JButton getPrevious(){
+        return this.previous;
     }
     
 }

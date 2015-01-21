@@ -29,24 +29,56 @@ public class AvancerInverseListener implements ActionListener{
             case 0:
             case 1:
             case 2:
+                if(p.timerNormal.getDelay() == 3000){
+                    p.timerInverse.setDelay(2000);
+                    p.etat = 4 ;
+                    p.getPrevious().setEnabled(true);
+                    p.getNext().setEnabled(true);
+                }
+                break;
             case 3:
                 break;
             case 4 :
+                if(p.timerInverse.getDelay() == 3000){
+                    p.timerInverse.setDelay(2000);
+                    p.etat = 8 ;
+                    p.getPrevious().setEnabled(true);
+                    p.getNext().setEnabled(true);
+                }
                 break;
             case 5 :
+                break;
             case 6 :
+                if(p.timerNormal.getDelay() == 2000){
+                    p.timerNormal.setDelay(3000);
+                    p.etat = 2 ;
+                    p.getPrevious().setEnabled(true);
+                    p.getNext().setEnabled(true);
+                }
+                break;
             case 7 :
+                if(p.timerNormal.getDelay() == 1000){
+                    p.timerNormal.setDelay(2000);
+                    p.etat = 6 ;
+                    p.getPrevious().setEnabled(true);
+                    p.getNext().setEnabled(true);
+                }
                 break;
             case 8 :
+                if(p.timerInverse.getDelay() == 2000){
+                    p.timerInverse.setDelay(1000);
+                    p.etat = 9 ;
+                    p.getPrevious().setEnabled(false);
+                    p.getNext().setEnabled(true);
+                }
                 break;
             case 9 :
-                break;
             case 10 :
             case 11 :
             case 12 :
             case 13 :
-            case 14 :
-                break;               
+            case 14 :  
+                break;
         }
     }
     

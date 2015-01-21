@@ -29,18 +29,52 @@ public class AvancerNormalListener implements ActionListener{
          switch (p.etat){
             case 0:
             case 1:
+                break;
             case 2:
+                if(p.timerNormal.getDelay() == 3000){
+                    p.timerNormal.setDelay(2000);
+                    p.etat = 6 ;
+                    p.getNext().setEnabled(true);
+                    p.getPrevious().setEnabled(true);
+                }
+                break;
             case 3:
                 break;
             case 4 :
+                if(p.timerInverse.getDelay() == 3000){
+                    p.timerInverse.setDelay(2000);
+                    p.etat = 2 ;
+                    p.getNext().setEnabled(true);
+                    p.getPrevious().setEnabled(true);
+                }
                 break;
             case 5 :
+                break;
             case 6 :
+                if(p.timerNormal.getDelay() == 2000){
+                    p.timerNormal.setDelay(1000);
+                    p.etat = 7 ;
+                    p.getNext().setEnabled(false);
+                    p.getPrevious().setEnabled(true);
+                }
+                break;
             case 7 :
                 break;
             case 8 :
+                if(p.timerInverse.getDelay() == 2000){
+                    p.timerInverse.setDelay(3000);
+                    p.etat = 4 ;
+                    p.getNext().setEnabled(true);
+                    p.getPrevious().setEnabled(true);
+                }
                 break;
             case 9 :
+                if(p.timerInverse.getDelay() == 1000){
+                    p.timerInverse.setDelay(2000);
+                    p.etat = 8 ;
+                    p.getNext().setEnabled(true);
+                    p.getPrevious().setEnabled(true);
+                }
                 break;
             case 10 :
             case 11 :
