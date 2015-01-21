@@ -31,7 +31,6 @@ class TimerNormalListener implements ActionListener {
                 break;
             case 2:
                 panel.etat = 2;
-                // continuer à faire défiler les images
                 this.panel.defilementNormal();
                 break;
             case 3:
@@ -40,11 +39,11 @@ class TimerNormalListener implements ActionListener {
                 break;
             case 6 :
                 panel.etat = 6;
-                // continuer à faire défiler les images
+                this.panel.defilementNormal();
                 break;
             case 7 :
                 panel.etat = 7;
-                // continuer à faire défiler les images
+                this.panel.defilementNormal();
                 break;
             case 8 :
             case 9 :

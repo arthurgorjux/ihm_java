@@ -33,20 +33,14 @@ public class AvancerNormalListener implements ActionListener{
             case 3:
                 break;
             case 4 :
-                p.etat = 4;
-                // continuer à faire défiler les images
                 break;
             case 5 :
             case 6 :
             case 7 :
                 break;
             case 8 :
-                p.etat = 8;
-                // continuer à faire défiler les images
                 break;
             case 9 :
-                p.etat = 9;
-                // continuer à faire défiler les images
                 break;
             case 10 :
             case 11 :
