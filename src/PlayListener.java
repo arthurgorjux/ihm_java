@@ -33,7 +33,7 @@ class PlayListener implements ActionListener {
         switch(this.p.etat){
             case 0:
             case 1:
-                this.p.createImageDisplay();
+                this.p.createImageDisplay();                
                 try {
                     ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/stop.png")));
                     this.play.setIcon(stopImg);
@@ -42,6 +42,7 @@ class PlayListener implements ActionListener {
                 } catch (IOException ex) {
                     Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
                 this.p.etat = 2;
                 break;
             case 2:
@@ -54,6 +55,7 @@ class PlayListener implements ActionListener {
                 } catch (IOException ex) {
                     Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                this.p.timerNormal.stop();
                 this.p.etat = 0;
         }
         /*if(!stop){

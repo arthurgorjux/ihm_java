@@ -68,7 +68,7 @@ public class Gallery extends JFrame{
         add(galleryPanel);
         this.setVisible(true);
         this.setResizable(false);
-        this.setSize(1100, 720);
+        this.setSize(1110, 720);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     

@@ -24,6 +24,7 @@ class TimerNormalListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         switch (panel.etat){
             case 0:
             case 1:
@@ -31,6 +32,7 @@ class TimerNormalListener implements ActionListener {
             case 2:
                 panel.etat = 2;
                 // continuer à faire défiler les images
+                this.panel.defilementNormal();
                 break;
             case 3:
             case 4 :
@@ -53,6 +55,8 @@ class TimerNormalListener implements ActionListener {
             case 14 :
                 break;               
         }
+
+        
     }
     
 }
