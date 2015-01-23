@@ -1,6 +1,11 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /*
@@ -13,8 +18,8 @@ import javax.swing.JButton;
  *
  * @author Nicolas
  */
-public class StopListener implements ActionListener{
-
+public class StopListener implements ActionListener {
+    
     private JButton stop;
     private GalleryPanel p;
 
@@ -23,10 +28,39 @@ public class StopListener implements ActionListener{
         this.p = aThis;
         
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(this.p.etat){
+            case 0:
+            case 1:
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+                this.p.stopImageDisplay();
+                this.p.disableButtons();
+                this.p.etat = 0;
+                try {
+                    ImageIcon playImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
+                    this.p.getPlay().setIcon(playImg);
+                    this.p.disableButtons();
+                    this.p.repaint();
+                } catch (IOException ex) {
+                    Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+        }
     }
     
 }

@@ -35,7 +35,7 @@ class PlayListener implements ActionListener {
             case 1:
                 this.p.createImageDisplay();                
                 try {
-                    ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/stop.png")));
+                    ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/pause.png")));
                     this.play.setIcon(stopImg);
                     this.p.enableButtons();
                     this.p.repaint();
@@ -46,35 +46,70 @@ class PlayListener implements ActionListener {
                 this.p.etat = 2;
                 break;
             case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-            case 13:
-            case 14:
-                this.p.stopImageDisplay();
+                this.p.pauseImageDisplayNormal();
                 try {
-                    ImageIcon playImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
-                    this.play.setIcon(playImg);
-                    this.p.disableButtons();
+                    ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
+                    this.play.setIcon(stopImg);
+                    this.p.disableArrows();
                     this.p.repaint();
                 } catch (IOException ex) {
                     Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                this.p.timerNormal.stop();
-                this.p.etat = 0;
+                
+                this.p.etat = 3;
+                break;
+            case 3:
+                this.p.replayImageDisplayNormal();
+                try {
+                    ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/pause.png")));
+                    this.play.setIcon(stopImg);
+                    this.p.enableArrows();
+                    this.p.repaint();
+                } catch (IOException ex) {
+                    Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                this.p.etat = 2;
+                break;
+            case 4:
+                this.p.pauseImageDisplayNormal();
+                try {
+                    ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
+                    this.play.setIcon(stopImg);
+                    this.p.disableArrows();
+                    this.p.repaint();
+                } catch (IOException ex) {
+                    Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                this.p.etat = 5;
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+            case 11:
+                break;
+            case 12:
+                break;
+            case 13:
+                break;
+            case 14:
+                break;
         }
         /*if(!stop){
             this.p.createImageDisplay();
             stop = true;            
             try {
-                ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/stop.png")));
+                ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/pause.png")));
                 this.play.setIcon(stopImg);
                 this.p.enableButtons();
                 this.p.repaint();

@@ -71,11 +71,11 @@ public class GalleryPanel extends JPanel{
         buttons.setLayout(new GridLayout(1, 4, 5, 5));
         Image imgStart = ImageIO.read(getClass().getResource("/IMG/play.png"));
         play = new JButton(new ImageIcon(imgStart));
-        Image imgPause = ImageIO.read(getClass().getResource("/IMG/pause.png"));
+        Image imgStop = ImageIO.read(getClass().getResource("/IMG/stop.png"));
         play.addActionListener(new PlayListener(play, this));
-        pause = new JButton(new ImageIcon(imgPause));
-        pause.addActionListener(new PauseListener(pause, this));
-        pause.setEnabled(false);
+        stop = new JButton(new ImageIcon(imgStop));
+        stop.addActionListener(new StopListener(stop, this));
+        stop.setEnabled(false);
         ImageIcon previousImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/previous.png")));
         previous = new JButton(previousImg);
         previous.setEnabled(false);
@@ -209,7 +209,7 @@ public class GalleryPanel extends JPanel{
         
         buttons.add(previous);
         buttons.add(play);
-        buttons.add(pause);
+        buttons.add(stop);
         buttons.add(next);
         this.setLayout(new BorderLayout());
         add(gridImages, BorderLayout.NORTH);
@@ -227,13 +227,23 @@ public class GalleryPanel extends JPanel{
     public void enableButtons(){
         this.next.setEnabled(true);
         this.previous.setEnabled(true);
-        this.pause.setEnabled(true);
+        this.stop.setEnabled(true);
     }
     
     public void disableButtons(){
         this.next.setEnabled(false);
         this.previous.setEnabled(false);
-        this.pause.setEnabled(false);
+        this.stop.setEnabled(false);
+    }
+    
+    public void disableArrows(){
+        this.next.setEnabled(false);
+        this.previous.setEnabled(false);
+    }
+    
+    public void enableArrows(){
+        this.next.setEnabled(false);
+        this.previous.setEnabled(false);
     }
     
     public void createImageDisplay(){ 
@@ -276,6 +286,22 @@ public class GalleryPanel extends JPanel{
         timerNormal.stop();
         validate();
         repaint();
+    }
+    
+    public void pauseImageDisplayNormal(){
+        this.timerNormal.stop();
+    }
+    
+    public void replayImageDisplayNormal(){
+        this.timerNormal.start();
+    }
+    
+    public void pauseImageDisplayInverse(){
+        this.timerInverse.stop();
+    }
+    
+    public void replayImageDisplayInverse(){
+        this.timerInverse.start();
     }
     
     public JButton getPlay(){
