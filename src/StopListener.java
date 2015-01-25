@@ -47,7 +47,6 @@ public class StopListener implements ActionListener {
             case 11:
             case 12:
             case 13:
-            case 14:
                 this.p.stopImageDisplay();
                 this.p.disableButtons();
                 this.p.etat = 0;

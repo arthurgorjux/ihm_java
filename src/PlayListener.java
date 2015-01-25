@@ -197,8 +197,6 @@ class PlayListener implements ActionListener {
                 
                 this.p.etat = 9;
                 break;
-            case 14:
-                break;
         }
     }    
 }

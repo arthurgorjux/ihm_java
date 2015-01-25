@@ -78,8 +78,7 @@ public class AvancerInverseListener implements ActionListener{
             case 10 :
             case 11 :
             case 12 :
-            case 13 :
-            case 14 :  
+            case 13 : 
                 break;
         }
     }

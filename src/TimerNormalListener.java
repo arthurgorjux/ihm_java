@@ -51,7 +51,6 @@ class TimerNormalListener implements ActionListener {
             case 11 :
             case 12 :
             case 13 :
-            case 14 :
                 break;               
         }
 
