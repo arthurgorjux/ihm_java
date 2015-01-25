@@ -200,30 +200,5 @@ class PlayListener implements ActionListener {
             case 14:
                 break;
         }
-        /*if(!stop){
-            this.p.createImageDisplay();
-            stop = true;            
-            try {
-                ImageIcon stopImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/pause.png")));
-                this.play.setIcon(stopImg);
-                this.p.enableButtons();
-                this.p.repaint();
-            } catch (IOException ex) {
-                Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }else{
-            this.p.stopImageDisplay();
-            stop = false;
-            try {
-                ImageIcon playImg = new ImageIcon(ImageIO.read(getClass().getResource("/IMG/play.png")));
-                this.play.setIcon(playImg);
-                this.p.disableButtons();
-                this.p.repaint();
-            } catch (IOException ex) {
-                Logger.getLogger(PlayListener.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }*/
     }    
 }

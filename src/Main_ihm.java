@@ -10,7 +10,7 @@ import javax.swing.JFrame;
  *
  * @author arthur gorjux
  */
-public class TD1_IHM {
+public class Main_ihm {
 
     /**
      * @param args the command line arguments
