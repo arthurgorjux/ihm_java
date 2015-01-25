@@ -42,7 +42,9 @@ public class AvancerNormalListener implements ActionListener{
                 break;
             case 4 :
                 if(p.timerInverse.getDelay() == 3000){
-                    p.timerInverse.setDelay(2000);
+                    p.timerInverse.stop();
+                    p.timerNormal.setDelay(3000);
+                    p.timerNormal.start();
                     p.etat = 2 ;
                     p.getNext().setEnabled(true);
                     p.getPrevious().setEnabled(true);

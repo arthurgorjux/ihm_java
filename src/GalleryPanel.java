@@ -39,7 +39,9 @@ public class GalleryPanel extends JPanel{
     private JLabel currentImage = null;
     private JLabel firstImage = null;
     private Map<JLabel, JLabel> mapImages;
-    private Map<JLabel, JLabel> mapImagesBig;
+    private Map<JLabel, JLabel> mapImagesBig;  
+    private Map<JLabel, JLabel> mapImagesBigInverse;
+    
     public int etat = 0;
     public Timer timerNormal;
     public Timer timerInverse;
@@ -51,21 +53,16 @@ public class GalleryPanel extends JPanel{
     
     public GalleryPanel(ImageIcon[] images) throws IOException{
         super(); 
-        this.timerNormal = new Timer(3000, new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                defilementNormal();
-            }
-        });
+        this.timerNormal = new Timer(3000, new TimerNormalListener(this, timerNormal));
         this.imagesLabel = new JLabel[12];
         this.imagesLabelInverse = new JLabel[12];
         timerActif = timerNormal;
-        timerInverse = new Timer(3, new TimerInverseListener(this,this.timerInverse));
+        timerInverse = new Timer(3000, new TimerInverseListener(this,this.timerInverse));
         
         this.images = images;
         this.mapImages = new HashMap<JLabel, JLabel>();
         this.mapImagesBig = new HashMap<JLabel, JLabel>();
+        this.mapImagesBigInverse = new HashMap<JLabel, JLabel>();
         gridImages = new JPanel();
         buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 4, 5, 5));
@@ -173,11 +170,19 @@ public class GalleryPanel extends JPanel{
         this.mapImagesBig.put(image11Big, image12Big);
         this.mapImagesBig.put(image12Big, image1Big);
         
-        for(int i = 0; i < this.imagesLabel.length / 2; i++){
-            JLabel temp = this.imagesLabel[i];
-            this.imagesLabelInverse[i] = this.imagesLabel[this.imagesLabel.length - i - 1];
-            this.imagesLabelInverse[this.imagesLabel.length - i - 1] = temp;
-        }
+        this.mapImagesBigInverse.put(image1Big, image12Big);
+        this.mapImagesBigInverse.put(image12Big, image11Big);
+        this.mapImagesBigInverse.put(image11Big, image10Big);
+        this.mapImagesBigInverse.put(image10Big, image9Big);
+        this.mapImagesBigInverse.put(image9Big, image8Big);
+        this.mapImagesBigInverse.put(image8Big, image7Big);
+        this.mapImagesBigInverse.put(image7Big, image6Big);
+        this.mapImagesBigInverse.put(image6Big, image5Big);
+        this.mapImagesBigInverse.put(image5Big, image4Big);
+        this.mapImagesBigInverse.put(image4Big, image3Big);
+        this.mapImagesBigInverse.put(image3Big, image2Big);
+        this.mapImagesBigInverse.put(image2Big, image1Big);
+        
        
         this.displayImage = new JPanel();
         
@@ -265,6 +270,15 @@ public class GalleryPanel extends JPanel{
     public void defilementNormal(){
         this.displayImage.remove(this.currentImage);
         this.currentImage = this.mapImagesBig.get(this.currentImage);
+        this.displayImage.add(this.currentImage);
+        this.add(this.displayImage, BorderLayout.NORTH);
+        validate();
+        repaint();
+    }
+    
+    public void defilementInverse(){
+        this.displayImage.remove(this.currentImage);
+        this.currentImage = this.mapImagesBigInverse.get(this.currentImage);
         this.displayImage.add(this.currentImage);
         this.add(this.displayImage, BorderLayout.NORTH);
         validate();

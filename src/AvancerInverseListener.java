@@ -31,7 +31,8 @@ public class AvancerInverseListener implements ActionListener{
                 break;
             case 2:
                 if(p.timerNormal.getDelay() == 3000){
-                    p.timerInverse.setDelay(2000);
+                    p.timerNormal.stop();
+                    p.timerInverse.start();
                     p.etat = 4 ;
                     p.getPrevious().setEnabled(true);
                     p.getNext().setEnabled(true);
